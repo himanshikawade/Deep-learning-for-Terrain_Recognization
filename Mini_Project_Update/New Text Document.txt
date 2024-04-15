@@ -1,0 +1,121 @@
+<script type="module">
+        //firebase
+
+
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+      import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyD8tj73FC_SwhRyZRZrlBmIDQs-KcHh5qQ",
+        authDomain: "final-30bd6.firebaseapp.com",
+        projectId: "final-30bd6",
+        storageBucket: "final-30bd6.appspot.com",
+        messagingSenderId: "247966844070",
+        appId: "1:247966844070:web:9f9874b324da01106b6067",
+        measurementId: "G-LS0SKMSNZ7"
+      };
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      
+      console.log(app);
+      const auth = getAuth();
+
+       //----- New Registration code start	  
+	    document.getElementById("loginForm").addEventListener("click", function() {
+		  var email =  document.getElementById("loginUsername").value;
+		  var password = document.getElementById("loginPassword").value;
+		  //For new registration
+		  signInWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+		    // Signed in 
+		    const user = userCredential.user;
+		    console.log(user);
+		    alert("Login successfully!!");
+		    // ...
+		  })
+		  .catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    // ..
+		    console.log(errorMessage);
+		    alert(errorMessage);
+		  });		  		  
+	  });
+    //----- Logout code start	  
+	  document.getElementById("logoutButton").addEventListener("click", function() {
+		  signOut(auth).then(() => {
+			  // Sign-out successful.
+			  console.log('Sign-out successful.');
+			  alert('Sign-out successful.');
+			  document.getElementById('logout').style.display = 'none';
+			}).catch((error) => {
+			  // An error happened.
+			  console.log('An error happened.');
+			});		  		  
+	  });
+	  //----- End
+	  
+      
+  </script>
+
+
+<script type="module">
+        //firebase
+
+
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+      import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyD8tj73FC_SwhRyZRZrlBmIDQs-KcHh5qQ",
+        authDomain: "final-30bd6.firebaseapp.com",
+        projectId: "final-30bd6",
+        storageBucket: "final-30bd6.appspot.com",
+        messagingSenderId: "247966844070",
+        appId: "1:247966844070:web:9f9874b324da01106b6067",
+        measurementId: "G-LS0SKMSNZ7"
+      };
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      
+      console.log(app);
+      const auth = getAuth();
+
+
+      //----- New Registration code start	  
+	    document.getElementById("signupForm").addEventListener("click", function() {
+		  var email =  document.getElementById("signupEmail").value;
+		  var password = document.getElementById("signupPassword").value;
+		  //For new registration
+		  createUserWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+		    // Signed in 
+		    const user = userCredential.user;
+		    console.log(user);
+		    alert("Registration successfully!!");
+		    // ...
+		  })
+		  .catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    // ..
+		    console.log(errorMessage);
+		    alert(error);
+		  });		  		  
+	  });
+	  //----- End
+  </script>
